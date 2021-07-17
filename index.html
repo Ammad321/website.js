@@ -17,15 +17,16 @@
 
             <div class="cart float-right">
                 <button 
-                    class="btn" 
-                   >Cart
+                    class="btn"
+                    v-on:click='MoveToCart'>
+                    {{this.cart.length}}Cart 
                 </button>
             </div>
 
             <div class="row">
                 <!--- Sidemenu with filter -->
                 <div class="col-12 col-md-4">
-                    <div>
+                    <div v-if='isCart == false'>
                         <div class="sidemenu-container">
                             <div>
                                 <input type="radio" name="order" value="asc" 
@@ -58,8 +59,20 @@
                     <!-- This displays the items only if the cart is false-->
                     <div class="row" >
                         <div class="col-6 col-md-4" >
-                            <div class="item">
-                               
+                            <div class="item" v-if='isCart == false'>
+                                <div class="col-6 col-md-4" v-for='item in items'>
+                                    <div class="item">
+                                        <img v-bind:src="item.image" class="mx-auto" alt="maths icon" height="100px">
+                                        <span v-if='item.space === 0'>Out of Stock</span>
+                                        <div id="item-name">{{item.name}}</div>
+                                        <div id="item-location">{{item.location}}</div>
+                                        <div id="item-space">{{item.space}}</div>
+                                        <div id="item-price"><b>£{{item.price}}</b></div>
+                                        <button class="btn btn-primary" v-on:click='addToCart(item)'
+                                            v-if='IsPossibleToAddToCart(item)'>Add to Cart</button>
+                                        <button class="btn btn-primary" disabled='disabled' v-else=>Add to Cart</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
