@@ -96,13 +96,12 @@
                         <p>Customer</p>
                         <form>
                             <label>Name:</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" v-model="orderName" v-on:keypress="OnlyLetter($event)">
                             <label>Phone:</label>
-                            <input class="form-control" type="text" 
-                                >
+                            <input class="form-control" type="text" v-model="orderNumber" v-on:keypress="OnlyNumber($event)">
                             <button class="btn btn-secondary">Back</button>
 
-                            <input class="btn btn-primary" type="submit">
+                            <input class="btn btn-primary" type="button" value="submit" v-if='FieldsAreFilled()' @click='Confirmation'>
                         </form>
                     </div>
                 </div>

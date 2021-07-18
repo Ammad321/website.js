@@ -5,7 +5,9 @@ var app = new Vue({
         cart: [],
         isCart: false,
         sortAscending: true,
-        activeSortProperty: "name"
+        activeSortProperty: "name",
+        orderName: '',
+        orderNumber: ''
     },
     methods: { 
         addToCart: function (item) {
@@ -32,7 +34,7 @@ var app = new Vue({
             this.isCart = this.isCart ? false : true;
         },
         // Removes the item from the cart
-        RemoveItemFromCart: (itemId) => {
+        RemoveItemFromCart: function (itemId) {
             const index = this.cart.indexOf(itemId);
             if (index > -1) {
                 this.cart.splice(index, 1);
@@ -78,7 +80,35 @@ var app = new Vue({
 
                 return result * sortOrder;
             }
-        }
+        },
+        Confirmation() {
+            alert("We have confirmed your order");
+        },
+        FieldsAreFilled() {
+            if(this.orderName == '' || this.orderNumber == '') {
+                return false;
+            } else {
+                return true;
+            }
+        },
+        OnlyNumber(e) {
+            let c = String.fromCharCode(e.keyCode); 
+            
+            if (/^[0-9]+$/.test(c)) {
+                return true;  
+            } else {
+                e.preventDefault();
+            }    
+        },
+        OnlyLetter(e) {
+            let c = String.fromCharCode(e.keyCode);
+
+            if (/^[A-Za-z]+$/.test(c)) {
+                return true;   
+            } else {
+                e.preventDefault(); 
+            }
+        },
     },
     computed: {
         
