@@ -1,6 +1,6 @@
 let items = [{
     id: 1,
-    image: "/assets/image/English.jpg",
+    image: "assets/images/English.jpg",
     name: "English",
     location: "Dartford",
     price: 16.50,
@@ -9,7 +9,7 @@ let items = [{
 
 {
     id: 2,
-    image: "/assets/image/Maths.jpg",
+    image: "assets/images/Maths.jpg",
     name: "Math",
     location: "Oxford",
     price: 23.50,
@@ -17,7 +17,7 @@ let items = [{
 },
 {
     id: 3,
-    image: "/assets/image/Science.png",
+    image: "assets/images/Science.png",
     name: "Science",
     location: "bexleyheath",
     price: 40.50,
@@ -25,7 +25,7 @@ let items = [{
 },
 {
     id: 4,
-    image: "/assets/image/Music.png",
+    image: "assets/images/Music.png",
     name: "Music",
     location: "bexleyheath",
     price: 32.50,
@@ -33,7 +33,7 @@ let items = [{
 },
 {
     id: 5,
-    image: "/assets/image/Art.jpg",
+    image: "assets/images/Art.jpg",
     name: "Art",
     location: "Oxford",
     price: 60.50,
@@ -41,7 +41,7 @@ let items = [{
 },
 {
     id: 6,
-    image: "/assets/image/Higher Maths.png",
+    image: "assets/images/Higher Maths.png",
     name: "Higher Maths",
     location: "Oxford",
     price: 25.43,
@@ -49,7 +49,7 @@ let items = [{
 },
 {
     id: 7,
-    image: "/assets/image/History.jpg",
+    image: "assets/images/History.jpg",
     name: "History",
     location: "Dartford",
     price: 25.30,
@@ -57,7 +57,7 @@ let items = [{
 },
 {
     id: 8,
-    image: "/assets/image/R.E.jpg",
+    image: "assets/images/R.E.jpg",
     name: "R.E",
     location: "Erith",
     price: 45.50,
@@ -65,7 +65,7 @@ let items = [{
 },
 {
     id: 9,
-    image: "/assets/image/Physics.jpg",
+    image: "assets/images/Physics.jpg",
     name: "Physics",
     location: "Erith",
     price: 32.00,
@@ -73,7 +73,7 @@ let items = [{
 },
 {
     id: 10,
-    image: "/assets/mage/Computer Science.jpg",
+    image: "assets/images/Computer Science.jpg",
     name: "Computer Science",
     location: "Erith",
     price: 27.50,

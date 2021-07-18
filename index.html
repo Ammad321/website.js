@@ -60,7 +60,7 @@
                     <div class="row" v-if='isCart == false'>
                         <div class="col-6 col-md-4" v-for='item in items'>
                             <div class="item">
-                                <img v-bind:src="item.image" class="mx-auto" alt="maths icon" height="100px">
+                                <img v-bind:src="item.image" class="mx-auto img-fluid" alt="maths icon" height="100px">
                                 <span v-if='item.space === 0'>Out of Stock</span>
                                 <div id="item-name">{{item.name}}</div>
                                 <div id="item-location">{{item.location}}</div>
@@ -106,5 +106,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-
 </html>
