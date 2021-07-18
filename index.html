@@ -7,7 +7,7 @@
 
             <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
             <script src="https://unpkg.com/vue"></script>    
-            <script src="lessons.js"></script>
+            <script src="items.js"></script>
 
             <title>Vue website</title>
         </head>
@@ -57,22 +57,18 @@
 
                 <div class="col-12 col-md-8 items-container">
                     <!-- This displays the items only if the cart is false-->
-                    <div class="row" >
-                        <div class="col-6 col-md-4" >
-                            <div class="item" v-if='isCart == false'>
-                                <div class="col-6 col-md-4" v-for='item in items'>
-                                    <div class="item">
-                                        <img v-bind:src="item.image" class="mx-auto" alt="maths icon" height="100px">
-                                        <span v-if='item.space === 0'>Out of Stock</span>
-                                        <div id="item-name">{{item.name}}</div>
-                                        <div id="item-location">{{item.location}}</div>
-                                        <div id="item-space">{{item.space}}</div>
-                                        <div id="item-price"><b>£{{item.price}}</b></div>
-                                        <button class="btn btn-primary" v-on:click='addToCart(item)'
-                                            v-if='IsPossibleToAddToCart(item)'>Add to Cart</button>
-                                        <button class="btn btn-primary" disabled='disabled' v-else=>Add to Cart</button>
-                                    </div>
-                                </div>
+                    <div class="row" v-if='isCart == false'>
+                        <div class="col-6 col-md-4" v-for='item in items'>
+                            <div class="item">
+                                <img v-bind:src="item.image" class="mx-auto" alt="maths icon" height="100px">
+                                <span v-if='item.space === 0'>Out of Stock</span>
+                                <div id="item-name">{{item.name}}</div>
+                                <div id="item-location">{{item.location}}</div>
+                                <div id="item-space">{{item.space}}</div>
+                                <div id="item-price"><b>£{{item.price}}</b></div>
+                                <button class="btn btn-primary" v-on:click='addToCart(item)'
+                                    v-if='IsPossibleToAddToCart(item)'>Add to Cart</button>
+                                <button class="btn btn-primary" disabled='disabled' v-else=>Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -103,6 +99,7 @@
     </body>
 
     <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -110,4 +107,4 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 
-    </html>
+</html>
