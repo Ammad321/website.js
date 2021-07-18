@@ -27,8 +27,35 @@ var app = new Vue({
             }
         },
         MoveToCart() {
-            this.isShoppingCart = this.isShoppingCart ? false : true;
+            this.isCart = this.isCart ? false : true;
         },
+        // Removes the item from the cart
+        RemoveItemFromCart: function (itemId) {
+            const index = this.cart.indexOf(itemId);
+            if (index > -1) {
+                this.cart.splice(index, 1);
+                
+                // Loop through item list and add the item back in space
+                for (let i = 0; i < this.items.length; i++) {
+                    if(items[i].id == itemId) {
+                        items[i].space += 1;
+                    }
+                }
+            }
+        },
+        // Counts the amount of item in the cart
+        CountsCart(id) {
+            let count = 0;
+
+            for (let i = 0; i < this.cart.length; i++) {
+                if (this.cart[i] === id) {
+                    count++;
+                }
+            }
+
+            return count;
+        },
+
     },
     computed: {
         
