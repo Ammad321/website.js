@@ -29,25 +29,24 @@
                     <div v-if='isCart == false'>
                         <div class="sidemenu-container">
                             <div>
-                                <input type="radio" name="order" value="asc" 
-                                    checked="checked">
-                                <label for="Price">Ascending</label>
-                                <br>
-                                <input type="radio" name="order" value="desc" >
+                                <input type="radio" name="order" value="desc" v-on:click='SortDesc($event)'>
                                 <label for="Availability">Descending</label>
+                                <br>
+                                <input type="radio" name="order" value="asc" checked="checked" v-on:click='SortAsc($event)'>
+                                <label for="Price">Ascending</label>
                             </div>
                             <hr/>
                             <div>
-                                <input type="radio" name="orderType" value="name" >
+                                <input type="radio" name="orderType" value="name" v-on:click='SortBy("name")'>
                                 <label for="Subject">Subject</label>
                                 <br>
-                                <input type="radio" name="orderType" value="location" >
+                                <input type="radio" name="orderType" value="location" v-on:click='SortBy("location")'>
                                 <label for="Location">Location</label>
                                 <br>
-                                <input type="radio" name="orderType" value="price">
+                                <input type="radio" name="orderType" value="price" v-on:click='SortBy("price")'>
                                 <label for="Price">Price</label>
                                 <br>
-                                <input type="radio" name="orderType" value="space">
+                                <input type="radio" name="orderType" value="space" v-on:click='SortBy("space")'>
                                 <label for="Availability">Availability</label>
                                 <br>
                             </div>

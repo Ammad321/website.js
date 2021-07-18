@@ -4,6 +4,8 @@ var app = new Vue({
         items: items,
         cart: [],
         isCart: false,
+        sortAscending: true,
+        activeSortProperty: "name"
     },
     methods: { 
         addToCart: function (item) {
@@ -30,7 +32,7 @@ var app = new Vue({
             this.isCart = this.isCart ? false : true;
         },
         // Removes the item from the cart
-        RemoveItemFromCart: function (itemId) {
+        RemoveItemFromCart: (itemId) => {
             const index = this.cart.indexOf(itemId);
             if (index > -1) {
                 this.cart.splice(index, 1);
@@ -55,7 +57,28 @@ var app = new Vue({
 
             return count;
         },
+        SortDesc(e) {
+            items.sort((first, second) => (first[this.activeSortProperty] > second[this.activeSortProperty]) ? -1 : 1);
+            this.sortAscending = false;
+        },
+        SortAsc(e) {
+            items.sort((first, second) => (first[this.activeSortProperty] > second[this.activeSortProperty]) ? 1 : -1);
+            this.sortAscending = true;
+        },
+        SortBy(sortProperty) {
+            items.sort(this.SortOnProperty(sortProperty));
+        },
+        SortOnProperty(property) {
+            var sortOrder = 1;
+            sortOrder = this.sortAscending ? 1 : -1;
+            this.activeSortProperty = property;
 
+            return (first,second) => {
+                var result = (first[property] < second[property]) ? -1 : (first[property] > second[property]) ? 1 : 0;
+
+                return result * sortOrder;
+            }
+        }
     },
     computed: {
         
